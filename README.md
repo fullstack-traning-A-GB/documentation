@@ -40,7 +40,7 @@ gradle bootRun
 
 if everything fits and goes right, then you might see something like:
 
-![An awesome project](tests/evidences/success_run.png)
+![An awesome project](/tests/evidences/success_run.png)
 
 ### 2. Then you can check by registering a new user :open_mouth:
 
@@ -54,7 +54,7 @@ curl -X POST ^
 
 
 As you can see in the next pick, you can see a beautiful log with an insertion query of the register user
-![An awesome evidence](tests/evidences/sucess_register.png)
+![An awesome evidence](/tests/evidences/sucess_register.png)
 
 ### 3. and make your login into the app :eyes:
 
