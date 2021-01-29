@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "be4eea80-ee5f-4d08-b20a-a4fa08275ec6",
+		"name": "bancolombia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testusr\",\r\n    \"password\": \"testpass\",\r\n    \"firstname\": \"test firstname\",\r\n    \"lastname\": \"test lastname\",\r\n    \"favoriteCurrencySymbol\": \"COP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/signUp",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"password\": \"testpass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BNC asset ticker",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5EVXhNRGhHT0VReE56STVOelJCTTBJM1FrUTVOa0l4TWtRd1FrSTJSalJFTVRaR1F6QTBOZyJ9.eyJpc3MiOiJodHRwczovL2F1dGguYnJhdmVuZXdjb2luLmNvbS8iLCJzdWIiOiJvQ2RRb1pvSTk2RVJFOUhZM3NRN0ptYkFDZkJmNTVSWUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hcGkuYnJhdmVuZXdjb2luLmNvbSIsImlhdCI6MTYxMTY2MjMyMiwiZXhwIjoxNjExNzQ4NzIyLCJhenAiOiJvQ2RRb1pvSTk2RVJFOUhZM3NRN0ptYkFDZkJmNTVSWSIsInNjb3BlIjoicmVhZDppbmRleC10aWNrZXIgcmVhZDpyYW5raW5nIHJlYWQ6bXdhIHJlYWQ6Z3dhIHJlYWQ6YWdncmVnYXRlcyByZWFkOm1hcmtldCByZWFkOmFzc2V0IHJlYWQ6b2hsY3YgcmVhZDptYXJrZXQtY2FwIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.z-_Bd3Pja3Lf6xppzf5QRW2tUqgEsmSNc671gcwz55H4toi2NzypS99L68WARz3YZR_M2NCoBfaLOFb3WwfpjvNINKSSOetIovoJRqMzo8h7q-fYskNkkEZQnQAd_ucKiGvinEw-MN2tEwWoqLsX3-1REK4eSHNPokF6mpaM4NSbXe1FGxQxS-FxZcwvSuGEZuxER1KUIkxJpo4X1l51HxfhxRrbela8AI0vmQpXmC-6FJymLeluMVNBHvESNpB4RC4vVxQWG3o6LNlnNpXtb1XCJftMe3vlikt_l3AbVK5Fb5DZci5dBOuArPuFmK_gZRJBSohLnsv2F3RvwCX-1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-rapidapi-key",
+						"value": "df0972c81bmsh3907660d951cd1cp13ff0cjsn59891829d50b",
+						"type": "text"
+					},
+					{
+						"key": "x-rapidapi-host",
+						"value": "bravenewcoin.p.rapidapi.com",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://bravenewcoin.p.rapidapi.com/market-cap?assetId=f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f&percentChange=true",
+					"protocol": "https",
+					"host": [
+						"bravenewcoin",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"market-cap"
+					],
+					"query": [
+						{
+							"key": "assetId",
+							"value": "f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"
+						},
+						{
+							"key": "percentChange",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add coin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTYxMTg4OTIzNX0.Vd7sWDn8c7KibRKA1H-YM567TqhVSAndzuL0rLRpuQ60Mau3xaSfUBBirsbW-tGUP1JVOOEl6IaxeEiM0P3D_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"assetId\": \"f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f\",\r\n  \"symbol\": \"string\",\r\n  \"type\": \"string\",\r\n  \"price\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/currency/addCoin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"currency",
+						"addCoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTop3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTYxMTg4OTIzNX0.Vd7sWDn8c7KibRKA1H-YM567TqhVSAndzuL0rLRpuQ60Mau3xaSfUBBirsbW-tGUP1JVOOEl6IaxeEiM0P3D_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/currency/getTop3?reversed=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"currency",
+						"getTop3"
+					],
+					"query": [
+						{
+							"key": "reversed",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user coins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTYxMTg4OTIzNX0.Vd7sWDn8c7KibRKA1H-YM567TqhVSAndzuL0rLRpuQ60Mau3xaSfUBBirsbW-tGUP1JVOOEl6IaxeEiM0P3D_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"symbol\": \"\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/currency/getCoins",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"currency",
+						"getCoins"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

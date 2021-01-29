@@ -1,56 +1,85 @@
-swagger http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#
+# Fullstack test, for GBC
+
+## Requirements to run this project
+
+This project is made using:
+
+- Backend:
+  - Java 11 - Used **[AdoptOpenJdk](https://adoptopenjdk.net/ "The Open jvm")** Hotspot.
+  - SpringBoot 2.3.8.RELEASE
+  - Gradle 6.7.1
+  - PostgreSQL 13.1
+
+- Frontend:
+  - Node Package Manager (npm 6.14.10) for NodeJs 14.15.4 (LTS)
+  - Angular CLI 9.1.13 (LTS)
+
+IDE and tools used:
+
+- IntelliJ IDEA Ultimate 2020.3.2 (latest)
+- Visual Studio Code (VScode)
+
+## Run Backend part :fearful:
+
+To run this project execute the `ddl.sql` under the [deployment](/deploy/) folder, keep in mind is needed to be admin on your Postgres DB instace, since you will create a new DB also new User, so run the DB and user creations scripts first then the DDL one.
+
+1. run [db_creation](/deploy/db_creation_q.sql)
+2. then run [ddl](/deploy/ddl_2.sql)
+
+As is noticed, it is necessary to use Java (11) to run the backend.
+
+Backend is a pure SpringBoot Project and is done in [Gradle](https://gradle.org/releases/ "Awesome gradle") so i recommend to run way command line after cloned as follows:
+
+### 1. Clone the backend repository:
+
+```console
+git clone https://github.com/fullstack-traning-A-GB/backend_api_wrapper_bnc.git
+cd ${yourDirectoryRootPath}/backend_api_wrapper_bnc
+gradle bootRun 
+```
+
+if everything fits and goes right, then you might see something like:
+
+![An awesome project](tests\evidences\success_run.PNG)
+
+### 2. Then you can check by registering a new user :open_mouth:
+
+```console
+$windows
+curl -X POST ^
+-H "content-type: application/json" ^
+-d "{\"username\":\"testuser\",\"password\":\"testpass\",\"firstname\":\"test firstname\",\"lastname\":\"test lastname\",\"favoriteCurrencySymbol\":\"COP\"}"
+"http://localhost:8080/user/signUp" ^
+```
 
 
-### SQL scripts
+As you can see in the next pick, you can see a beautiful log with an insertion query of the register user
+![An awesome evidence](tests\evidences\sucess_register.PNG)
 
-    create user bncadmin with password 'admin';
-    create database bnc with owner 'bncadmin';
-    grant all privileges on database bnc to bncadmin;
-    grant connect on database bnc to bncadmin;
-    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO bncadmin;
-    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO bncadmin;
-    
-    create schema if not exists manager_schema;
-    create schema if not exists crypto_schema;
+### 3. and make your login into the app :eyes:
 
-    \c bnc
-    
-    
-    create table if not exists manager_schema.users(
+```shell
+$windows
+curl -X POST ^
+-H "content-type: application/json" ^
+-d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+http://localhost:8080/user/login
+```
 
-    id bigserial not null,
-    username varchar(25) not null,
-    password text not null,
-    firstname varchar(30) not null,
-    lastname varchar(30) not null,
-    primary key(id),
-    unique(username)
+And you get your token :sunglasses:
 
-    );
+```json
+{
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTYxMTk2MzAzN30.-bH348JsTRj72GTkG1KWxMD3Cg3FSpNEWDxrJTKRhC74-b-qo53fqnO8YxIp0TrMJnMLKv5VrFk_DyPx42ib2Q",
+    "expirationTime": "2021-01-29T23:30:37.564+00:00",
+    "type": "Bearer"
+}
+```
 
-    drop table if exists crypto_schema.currencies;
-    create table if not exists crypto_schema.currencies(
+so use that token to acces the other resources (services/endpoints) around the app.
 
-    id bigserial not null,
-    asset_id text not null,
-    name varchar(30) not null,
-    status varchar(10) not null,
-    symbol varchar(10) not null,
-    currency_type varchar(10) not null,
-    price numeric not null,
-    primary key(id),
-    unique(asset_id)
+the swagger url is `http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#`
 
-    );
+## Run Frontend Part
 
-    drop table if exists manager_schema.users_currencies;
-    create table if not exists manager_schema.users_currencies( 
-    user_id bigserial not null,
-    currency_id bigserial not null,
-    favorite bool not null default false,
-    unique(user_id,
-    currency_id),
-    constraint fk_users foreign key(user_id) references manager_schema.users(id),
-    constraint fk_currencies foreign key(currency_id) references crypto_schema.currencies(id)
-    );
-
+~~under construction~~
