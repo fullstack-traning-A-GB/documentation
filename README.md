@@ -30,7 +30,7 @@ As is noticed, it is necessary to use Java (11) to run the backend.
 
 Backend is a pure SpringBoot Project and is done in [Gradle](https://gradle.org/releases/ "Awesome gradle") so i recommend to run way command line after cloned as follows:
 
-### 1. Clone the backend repository:
+### 1. Clone the backend repository :sparkles:
 
 ```console
 git clone https://github.com/fullstack-traning-A-GB/backend_api_wrapper_bnc.git
@@ -42,7 +42,7 @@ if everything fits and goes right, then you might see something like:
 
 ![Spring](tests/evidences/success_run.PNG?raw=true)
 
-### 2. Then you can check by registering a new user :open_mouth:
+### 2. Registering a new user :open_mouth:
 
 ```console
 $windows
