@@ -23,7 +23,7 @@ IDE and tools used:
 
 To run this project execute the `ddl.sql` under the [deployment](/deploy/) folder, keep in mind is needed to be admin on your Postgres DB instace, since you will create a new DB also new User, so run the DB and user creations scripts first then the DDL one.
 
-1. run [db_creation](../deploy/db_creation_q.sql)
+1. run [db_creation](/deploy/db_creation_1.sql)
 2. then run [ddl](/deploy/ddl_2.sql)
 
 As is noticed, it is necessary to use Java (11) to run the backend.
@@ -54,7 +54,7 @@ curl -X POST ^
 
 As you can see in the next pick, you can see a beautiful log with an insertion query of the register user
 
-![RegisterUser](tests/evidences/success_register.PNG?raw=true)
+![RegisterUser](tests/evidences/sucess_register.PNG?raw=true)
 
 ### 3. Make your login into the app :eyes:
 
