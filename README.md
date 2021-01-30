@@ -52,11 +52,11 @@ curl -X POST ^
 "http://localhost:8080/user/signUp" ^
 ```
 
-
 As you can see in the next pick, you can see a beautiful log with an insertion query of the register user
-![Register](tests/evidences/success_register.PNG?raw=true)
 
-### 3. and make your login into the app :eyes:
+![RegisterUser](tests/evidences/success_register.PNG?raw=true)
+
+### 3. Make your login into the app :eyes:
 
 ```shell
 $windows
