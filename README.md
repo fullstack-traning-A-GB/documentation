@@ -23,7 +23,7 @@ IDE and tools used:
 
 To run this project execute the `ddl.sql` under the [deployment](/deploy/) folder, keep in mind is needed to be admin on your Postgres DB instace, since you will create a new DB also new User, so run the DB and user creations scripts first then the DDL one.
 
-1. run [db_creation](/deploy/db_creation_q.sql)
+1. run [db_creation](../deploy/db_creation_q.sql)
 2. then run [ddl](/deploy/ddl_2.sql)
 
 As is noticed, it is necessary to use Java (11) to run the backend.
@@ -40,7 +40,7 @@ gradle bootRun
 
 if everything fits and goes right, then you might see something like:
 
-![An awesome project](tests/evidences/success_run.png?raw=true)
+![An awesome project](/tests/evidences/success_run.png?raw=true)
 
 ### 2. Then you can check by registering a new user :open_mouth:
 
@@ -54,7 +54,7 @@ curl -X POST ^
 
 
 As you can see in the next pick, you can see a beautiful log with an insertion query of the register user
-![An awesome evidence](tests/evidences/success_register.png?raw=true)
+![An awesome evidence](../tests/evidences/success_register.png?raw=true)
 
 ### 3. and make your login into the app :eyes:
 
